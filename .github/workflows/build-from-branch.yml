@@ -1,0 +1,19 @@
+name: OpenSearch Dashboards Build From Branch
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        required: true
+        default: ''
+
+jobs:
+  Pull-OpenSearch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{inputs.ref}}
+      - run: |
+          git branch
